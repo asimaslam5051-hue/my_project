@@ -22,9 +22,9 @@ app.include_router(blog_post.router)
 app.include_router(blog_get.router)
 
 # Simple hello route
-@app.get('/hello')
-def index():
-    return {'message': 'Hello world!'}
+@app.get('/')
+def root():
+    return {"message": "Welcome to my FastAPI app!"}
 
 # Custom exception handler
 @app.exception_handler(StoryException)
