@@ -21,9 +21,9 @@ app.include_router(authentication.router)
 app.include_router(blog_post.router)
 app.include_router(blog_get.router)
 
-@app.get("/hello")
-def index():
-    return {"message": "Hello world!"}
+@app.get("/")
+def read_root():
+    return {"message": "FastAPI app is running on Vercel!"}
 
 @app.exception_handler(StoryException)
 async def story_exception_handler(request: Request, exc: StoryException):
