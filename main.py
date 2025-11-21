@@ -21,12 +21,10 @@ app.include_router(authentication.router)
 app.include_router(blog_post.router)
 app.include_router(blog_get.router)
 
-# Simple hello route
 @app.get("/hello")
 def index():
     return {"message": "Hello world!"}
 
-# Custom exception handler
 @app.exception_handler(StoryException)
 async def story_exception_handler(request: Request, exc: StoryException):
     return JSONResponse(
@@ -34,10 +32,8 @@ async def story_exception_handler(request: Request, exc: StoryException):
         content={'detail': exc.name}
     )
 
-# Create all database tables
 models.Base.metadata.create_all(engine)
 
-# CORS configuration
 origins = [
     'http://localhost:3000'
 ]
@@ -50,6 +46,6 @@ app.add_middleware(
     allow_headers=["*"]
 )
 
-# Serve static files
+
 app.mount('/files', StaticFiles(directory="files"), name='files')
 

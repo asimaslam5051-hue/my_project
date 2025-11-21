@@ -1,22 +1,17 @@
 
-fastapi>=0.104.0
-uvicorn[standard]>=0.24.0
-SQLAlchemy>=2.0.0
-alembic>=1.12.0
-
+fastapi
+uvicorn[standard]
+SQLAlchemy
+alembic
 google-auth
-python-dotenv>=1.0.0
-
-httpx>=0.25.0
-requests>=2.31.0
-
-pydantic>=2.0.0
-pydantic-settings>=2.0.0
-
-
-typing-extensions>=4.8.0
-passlib>=1.7.4
-bcrypt>=4.0.0
+python-dotenv
+httpx
+requests
+pydanti
+pydantic-settings
+typing-extension
+passlib
+bcrypt
 python_jose
 aiofiles
 
