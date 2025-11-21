@@ -7,7 +7,7 @@ google-auth
 python-dotenv
 httpx
 requests
-pydanti
+pydantic
 pydantic-settings
 typing-extension
 passlib
