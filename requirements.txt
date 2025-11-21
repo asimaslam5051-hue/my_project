@@ -9,7 +9,7 @@ httpx
 requests
 pydantic
 pydantic-settings
-typing-extension
+typing-extensions
 passlib
 bcrypt
 python_jose
