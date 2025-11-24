@@ -1,4 +1,4 @@
-def log(tag ="" , message = ""):
-    with open("log.text","w+") as log:
+def Log(tag ="" , message = ""):
+    with open("Log.text","a") as log:
         log.write(f"{tag}:{message}\n")
 
