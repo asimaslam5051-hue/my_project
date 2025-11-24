@@ -18,6 +18,7 @@ router = APIRouter(
     description="This api call simulates fetching all blogs",
     response_description="A list of available blogs"
 )
+@router.get("/all")
 def get_all_blogs(page: int = 1, page_size: Optional[int] = None):
     return {"message": f"All {page_size} blogs on page {page}"}
 
