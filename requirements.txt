@@ -14,6 +14,6 @@ passlib
 bcrypt
 python_jose
 aiofiles
-
+requests
 python-multipart
-
+pytest
