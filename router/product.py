@@ -1,7 +1,7 @@
 from fastapi import APIRouter, Query,Cookie,Form
 from fastapi.responses import Response, HTMLResponse, PlainTextResponse
 from typing import Optional, List
-from custom_log import Log
+from router.custom_log import Log
 router = APIRouter(
     prefix="/product",
     tags=["product"]
