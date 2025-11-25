@@ -2,7 +2,7 @@ from fastapi import FastAPI, Request
 from fastapi.responses import JSONResponse, PlainTextResponse
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.staticfiles import StaticFiles
-
+from router import template
 from exceptions import StoryException
 from router import file, product, user, article, blog_get, blog_post
 from router import authentication
@@ -14,6 +14,7 @@ app = FastAPI()
 
 # Include routers
 app.include_router(file.router)
+app.include_router(template.router)
 app.include_router(article.router)
 app.include_router(user.router)
 app.include_router(product.router)
