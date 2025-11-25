@@ -1,13 +1,15 @@
 from fastapi import APIRouter, Request
 from fastapi.templating import Jinja2Templates
 from fastapi.responses import HTMLResponse
-
+import os
+from schemas import ProductBase
 router = APIRouter(
     prefix="/templates",
     tags=["templates"]
 )
+BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+template = Jinja2Templates(directory=os.path.join(BASE_DIR, "templates"))
 
-template = Jinja2Templates(directory="templates")  
 
 @router.get("/products/{id}", response_class=HTMLResponse)
 def get_product(id: str, request: Request):
@@ -24,3 +26,14 @@ def get_all_product( request: Request):
         {"request": request}
     )
 
+@router.post("/products/{id}", response_class=HTMLResponse)
+def get_product(id: str,product: ProductBase, request: Request):
+    return template.TemplateResponse(
+        "product.html", 
+        {"request": request,
+        "id": id,
+        "title": product.title,
+        "description":product.description,
+        "price":product.price
+        }
+    )      
