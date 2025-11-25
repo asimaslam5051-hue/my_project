@@ -6,11 +6,10 @@ from exceptions import StoryException
 from router import file, product, user, article, blog_get, blog_post
 from router.templates import templates
 from fastapi.staticfiles  import StaticFiles
-from . import authentication
+import authentication
 from os import name
 import models
 from db.database import engine
-from router import authentication
 
 
 app = FastAPI()
