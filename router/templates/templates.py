@@ -17,10 +17,10 @@ def get_product(id: str, request: Request):
     )
 
 
-@router.get("all/products/{id}", response_class=HTMLResponse)
-def get_all_product(id: str, request: Request):
+@router.get("/", response_class=HTMLResponse)
+def get_all_product( request: Request):
     return template.TemplateResponse(
         "product.html", 
-        {"request": request, "id": id}
+        {"request": request}
     )
 
