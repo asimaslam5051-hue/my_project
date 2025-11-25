@@ -3,16 +3,16 @@ from fastapi.templating import Jinja2Templates
 from starlette.responses  import HTMLResponse
 from fastapi.responses import Response
 router = APIRouter(
-    prefix = 'template',
-    tag =['template']
+    prefix = '/templates',
+    tags =['templates']
 
 
 )
 
 template =Jinja2Templates(directory='templates')
-@router.get("/products/{id}",responses= HTMLResponse)
+@router.get("/products/{id}",response_class= HTMLResponse)
 def get_pproduct(id:str,resposes:Response):
-    return template.TemplateResponse
+    return Jinja2Templates.TemplateResponse
     "product.html",
     {
         "request":request
