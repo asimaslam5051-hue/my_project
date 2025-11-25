@@ -17,3 +17,4 @@ aiofiles
 requests
 python-multipart
 pytest
+jinja2
