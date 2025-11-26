@@ -1,4 +1,5 @@
-def Log(tag : str ="" , message : str = ""):
-    with open("Log.txt","a",encoding="utf-8") as log:
-        log.write(f"{tag}: {message}\n")
+# C:\Users\ASIM ASLAM\Desktop\project\router\custom_log.py
 
+def Log(tag="", message=""):
+    with open("Log.txt", "a") as f:
+        f.write(f"{tag}: {message}\n")

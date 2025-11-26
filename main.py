@@ -11,7 +11,7 @@ from os import name
 import models
 from db.database import engine
 import os
-
+import time
 app = FastAPI()
 
 
@@ -38,6 +38,15 @@ async def story_exception_handler(request: Request, exc: StoryException):
 
 models.Base.metadata.create_all(engine)
 
+
+@app.middleware("http")
+async def add_Middleware(request:Request, call_next):
+    start_time = time.time()
+    response = await call_next(request)
+    duration = time.time() -  start_time
+    response.headers['duration'] = str(duration)
+    return response
+
 origins = [
     'http://localhost:3000'
 ]
@@ -52,11 +61,8 @@ app.add_middleware(
 
 
 app.mount('/files', StaticFiles(directory="files"), name='files')
-app.mount(
-    "/templates/static",
-    StaticFiles(directory="templates/static"),
-    name="static"
-)
+app.mount("/static", StaticFiles(directory="static"), name="static")
+
 @app.get("/test-static")
 def test_static():
     return {"file_exists": os.path.exists("templates/static/style.css")}
