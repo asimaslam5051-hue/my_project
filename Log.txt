@@ -1,1 +1,2 @@
 my Api: call to get all products
+myapi: template read for product with id 4
