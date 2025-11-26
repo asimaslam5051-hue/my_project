@@ -10,7 +10,7 @@ import authentication
 from os import name
 import models
 from db.database import engine
-
+import os
 
 app = FastAPI()
 
@@ -57,4 +57,7 @@ app.mount(
     StaticFiles(directory="templates/static"),
     name="static"
 )
+@app.get("/test-static")
+def test_static():
+    return {"file_exists": os.path.exists("templates/static/style.css")}
 

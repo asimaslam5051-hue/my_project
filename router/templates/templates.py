@@ -30,7 +30,26 @@ def get_all_product( request: Request):
 def get_product(id: str,product: ProductBase, request: Request):
     return template.TemplateResponse(
         "product.html", 
-        {"request": request,
+        {"request": Request,
+        "id": id,
+        "title": product.title,
+        "description":product.description,
+        "price":product.price
+        }
+    )      
+
+
+@router.delete("/product /{id}", response_class=HTMLResponse)
+def delete_product(id: str,product: ProductBase):
+    return "all"
+
+
+
+@router.put("/product/", response_class=HTMLResponse)
+def put_product(id: str,product: ProductBase):
+    return   template.TemplateResponse(
+        "product.html", 
+        {"request": Request,
         "id": id,
         "title": product.title,
         "description":product.description,
