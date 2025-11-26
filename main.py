@@ -13,7 +13,9 @@ import time
 
 app = FastAPI()
 
-
+@app.get("/")
+def root():
+    return {"message": "FastAPI is running!"}
 app.include_router(file.router)
 app.include_router(templates.router)
 app.include_router(article.router)
