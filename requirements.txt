@@ -17,4 +17,5 @@ aiofiles
 requests
 python-multipart
 pytest
+websockets
 jinja2
